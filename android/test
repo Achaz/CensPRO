@@ -1,0 +1,34 @@
+// --> missed list of qualifications
+	
+	//create person	
+	$person_id = addPerson($dateOfBirth, $father, $mother, $ethnicity, $religion, $record_person_id, $person_name, $gender, $household_id);
+	
+	//define literacy
+	addPersonLiteracy($person_id, $canRead, $canWrite, $speaksEnglish, $hasMobilePhone, $internetSavy);
+	
+	//record schools attended
+	
+	for($i = 0; $i < count($school_list); $i++){
+           $school_info = $school_list[$i];
+           $school_name = $school_info['schoolname'];
+           $class = $school_info['classname'];
+           $year = $school_info['year'];
+	   addSchoolsPersonAttended($school_name, $class, $year, $person_id);
+        }
+	
+	
+	//record qualifications
+        for($i = 0; $i < count($school_list); $i++){
+         
+          $qualification = $qual_list[$i];
+          $awarding_institute = $qualification['instname'];
+          $qualname = $qualification['qualification'];
+          $year = $qualification['year'];
+	  addQualificationsPersonAchieved($qualname, $awarding_institute, $year, $person_id);
+        }
+	
+	//add disability
+	addPersonDisability($disability, $person_id);
+	
+	//add enterprise
+	// --> this was sent to household

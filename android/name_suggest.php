@@ -1,0 +1,19 @@
+<?php
+include_once("../function/android.php");
+include_once("../function/core.php");
+$res = db_select2(" select * from censpro_person");
+
+$data = array();
+if ( $rs && mysql_num_rows($rs) )
+{
+    while( $row = mysql_fetch_array($rs, MYSQL_ASSOC) )
+    {
+        $data[] = array(
+            'name' => $row['name']
+        );
+    }
+}
+
+echo json_encode($data);
+flush();
+?>
